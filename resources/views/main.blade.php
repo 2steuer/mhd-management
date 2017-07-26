@@ -44,8 +44,8 @@
         <div class="col-sm-9 col-xs-12">
             @yield('subnav')
 
-            @if(Session::has('flash_message'))
-                <div class="alert {{ Session::has('flash_message_class') ? Session::get('flash_message_class') : 'alert-success' }}">{{ Session::get('flash_message') }}</div>
+            @if(Session::has('alert'))
+                <div class="alert {{ Session::get('alert_class', 'alert-success') }}">{{ Session::get('alert') }}</div>
             @endif
 
             @if($errors->any())

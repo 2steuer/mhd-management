@@ -11,6 +11,20 @@
 |
 */
 
-Route::get('/login', function () {
-    return view('main');
-})->name('login');
+Route::get('login', 'Auth\LoginController@loginform')
+    ->name('login');
+Route::post('checklogin', 'Auth\LoginController@checklogin')
+    ->name('login.check');
+
+Route::get('/', function() {
+    return redirect()->route('home');
+});
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('logout', 'Auth\LoginController@logout')
+        ->name('login.logout');
+
+    Route::get('home', function() {
+        return view('pages.welcome.welcome');
+    })->name('home');
+});

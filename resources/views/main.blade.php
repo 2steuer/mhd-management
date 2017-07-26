@@ -14,7 +14,7 @@
 
 <div class="navbar navbar-default visible-xs" role="navigation">
     <div class="navbar-header">
-        <span class="navbar-brand">Alarm2SMS</span>
+        <span class="navbar-brand">{{ env('APP_NAME') }}</span>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#xs-navbar-collapse">
             <span class="sr-only">Toggle Navigation</span>
             <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>

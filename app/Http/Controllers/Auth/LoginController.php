@@ -33,6 +33,7 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::logout();
+        Session::flash('alert', 'Logout erfolgreich.');
         return redirect()->route('login');
     }
 
@@ -45,7 +46,7 @@ class LoginController extends Controller
      */
     public function checklogin(Request $request)
     {
-        if(Auth::attempt(['email' => $request->get('email'), 'password'=>$request->get('password')], $request->get('remember')))
+        if(Auth::attempt(['email' => $request->get('email'), 'password'=>$request->get('password'), 'can_login' => true], $request->get('remember')))
         {
             Session::flash('alert', 'Login erfolgreich');
             return redirect()->intended('/home');
@@ -53,7 +54,7 @@ class LoginController extends Controller
         else
         {
             Session::flash('alert', 'E-Mail oder Kennwort falsch.');
-            Session::flash('alert_class', 'alert-warning');
+            Session::flash('alert_class', 'alert-danger');
             return redirect()->back();
         }
     }

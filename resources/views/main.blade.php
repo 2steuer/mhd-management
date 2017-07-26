@@ -55,6 +55,7 @@
                     @endforeach
                 </div>
             @endif
+            <h2>@yield('page_title')</h2>
 
             @yield('content')
         </div>

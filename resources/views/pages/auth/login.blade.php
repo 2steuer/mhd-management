@@ -1,9 +1,9 @@
 @extends('main')
 
 @section('title') Login @stop
+@section('page_title', 'Login')
 
 @section('content')
-    <h2>Login</h2>
     {!! Form::open(['route'=>'login.check', 'method' => 'post', 'class'=>'form-horizontal']) !!}
 
     <div class="form-group">

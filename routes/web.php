@@ -27,4 +27,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('home', function() {
         return view('pages.welcome.welcome');
     })->name('home');
+
+    Route::resource('users', 'UserController');
 });

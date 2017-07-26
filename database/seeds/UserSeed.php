@@ -17,6 +17,7 @@ class UserSeed extends Seeder
         $newUser->email = 'steuer@malteser-stormarn.de';
         $newUser->password = Hash::make('pwmerlin');
         $newUser->can_login = true;
+        $newUser->admin = true;
         $newUser->save();
     }
 }

@@ -1,7 +1,7 @@
-@extends('main')
+@extends('pages.users.main')
 
-@section('title', 'Personen')
-@section('page_title', 'Personen verwalten')
+@section('title', 'Mitglieder')
+@section('page_title', 'Mitglieder verwalten')
 
 @section('content')
     <table class="table">

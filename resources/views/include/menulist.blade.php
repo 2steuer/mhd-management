@@ -1,8 +1,9 @@
 <ul class="{{ $nav_classes }}">
     @if(Auth::guest())
-        <li class="active"><a href="{{ route('login') }}">Login</a></li>
+        {{ Html::appNavLink('login', 'Einloggen', [], 0, true) }}
     @else
-        <li class="{{ starts_with(Route::current()->getName(), 'home') ? 'active' : '' }}"><a href="{{ route('home') }}">Startseite</a></li>
-        <li><a href="{{ route('login.logout') }}">Ausloggen</a></li>
+        {{ Html::appNavLink('home', 'Startseite') }}
+        {{ Html::appNavLink('users.index', 'Mitglieder') }}
+        {{ Html::appNavLink('login.logout', 'Ausloggen') }}
     @endif
 </ul>

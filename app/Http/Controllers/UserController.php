@@ -90,6 +90,8 @@ class UserController extends CrudController
         $number = $model->default_phone();
         $number->number = $request->get('phone_number');
         $number->save();
+
+        $model->vehicles()->sync($request->get('selected_vehicles', []));
     }
 
     protected function preStoreActions(array $data)
@@ -105,6 +107,8 @@ class UserController extends CrudController
         $number->number = $request->get('phone_number');
         $number->user_id = $model->id;
         $number->save();
+
+        $model->vehicles()->sync($request->get('selected_vehicles', []));
     }
 
     protected function preDeleteActions(Model $model, Request $request)

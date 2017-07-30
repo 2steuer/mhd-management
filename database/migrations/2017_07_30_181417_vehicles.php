@@ -24,7 +24,7 @@ class Vehicles extends Migration
             $t->timestamps();
         });
 
-        Schema::create('users_vehicles', function(Blueprint $t)
+        Schema::create('user_vehicle', function(Blueprint $t)
         {
             $t->unsignedInteger('user_id');
             $t->unsignedInteger('vehicle_id');

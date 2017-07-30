@@ -10,6 +10,9 @@
 
 {{ Form::appSelect('driver_license_id', 'Führerscheinklasse', \App\DriverLicense::orderBy('rank')->pluck('name', 'id')) }}
 
+{{ Form::appCheckboxList('selected_vehicles', 'Zugelassene Fahrzeuge', \App\Vehicle::orderBy('rank')->pluck('name', 'id'),
+                                                                        $model->vehicles()->pluck('id')->toArray()) }}
+
 {{ Form::appTextarea('comment', 'Kommentar') }}
 
 @if(\Illuminate\Support\Facades\Auth::getUser()->admin)

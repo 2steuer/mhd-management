@@ -19,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
 
         Form::component('appEditForm', 'components.form.form_edit', ['model', 'form_route', 'back_route', 'form_partial']);
         Form::component('appNewForm', 'components.form.form_new', ['form_route', 'back_route', 'form_partial']);
+        Form::component('appDeleteForm', 'components.form.form_confirmdelete', ['route', 'back_route']);
 
         Form::component('appText', 'components.form.text', ['name', 'description', 'value' => null, 'attributes' => []]);
         Form::component('appEmail', 'components.form.email', ['name', 'description', 'value' => null, 'attributes' => []]);

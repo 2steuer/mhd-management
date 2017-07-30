@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Base\CrudController;
 use App\User;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
-class UserController extends Controller
+class UserController extends CrudController
 {
     protected $rules = [
         'first_name' => 'required|min:2',
@@ -16,10 +18,19 @@ class UserController extends Controller
         'email' => 'required|email'
     ];
 
-    protected function getValidator(Request $request, bool $creating)
+    protected $model_singular = 'user';
+    protected $model_plural = 'users';
+    protected $human_plural = 'Mitglieder';
+    protected $human_singular = 'Mitglied';
+
+    public function __construct(User $user)
     {
-        $v = Validator::make($request->all(),
-            $this->rules);
+        $this->model = $user;
+    }
+
+    protected function getValidator(Request $request, bool $creating = false)
+    {
+        $v = parent::getValidator($request, $creating);
 
         if(!$creating)
         {
@@ -37,34 +48,26 @@ class UserController extends Controller
         return $v;
     }
 
-    public function index()
+    protected function getModelName(Model $model)
     {
-        return view('pages.users.index', ['users' => User::all()]);
+        return $model->last_name . ', ' . $model->first_name;
     }
 
-    public function edit(Request $request, User $user)
+    protected function preUpdateActions(Model $model, array $data)
     {
-        return view('pages.users.edit', ['user' => $user]);
-    }
-
-    public function update(Request $request, User $user)
-    {
-        $this->getValidator($request, false)->validate();
-
-        $data = $request->all();
-        if($user->can_login && !$data['can_login'])
+        if($model->can_login && !$data['can_login'])
         {
             $data['password'] = null;
         }
-        else if(!$user->can_login && !$data['can_login'])
+        else if(!$model->can_login && !$data['can_login'])
         {
             $data['password'] = null;
         }
         else
         {
-            if($request->get('password', '') == '')
+            if(!in_array('password', array_keys($data)))
             {
-                $data['password'] = $user->password;
+                $data['password'] = $model->password;
             }
             else
             {
@@ -72,31 +75,12 @@ class UserController extends Controller
             }
         }
 
-        $user->update($data);
-        $user->save();
-
-        Session::flash('alert', 'Benutzer aktualisiert');
-
-        return redirect()->route('users.index');
+        return $data;
     }
 
-    public function create(Request $request)
+    protected function preStoreActions(array $data)
     {
-        return view('pages.users.create');
-    }
-
-    public function store(Request $request)
-    {
-        $this->getValidator($request, true)->validate();
-
-        $data = $request->all();
         $data['password'] = Hash::make($data['password']);
-
-        $user = new User($data);
-        $user->save();
-
-        Session::flash('alert', 'Mitglied angelegt');
-
-        return redirect()->route('users.index');
+        return $data;
     }
 }

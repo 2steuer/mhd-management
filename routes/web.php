@@ -29,4 +29,6 @@ Route::group(['middleware' => 'auth'], function() {
     })->name('home');
 
     Route::resource('users', 'UserController');
+    Route::get('users/{id}/confirmdelete', 'UserController@confirmdelete')
+        ->name('users.confirmdelete');
 });

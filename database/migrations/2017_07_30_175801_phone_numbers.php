@@ -22,7 +22,8 @@ class PhoneNumbers extends Migration
 
             $t->foreign('user_id')
                 ->references('id')
-                ->on('users');
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 

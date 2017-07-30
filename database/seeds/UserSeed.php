@@ -19,5 +19,11 @@ class UserSeed extends Seeder
         $newUser->can_login = true;
         $newUser->admin = true;
         $newUser->save();
+
+        $number = new \App\PhoneNumber();
+        $number->description = 'default';
+        $number->number = '0176 / 48 55 06 26';
+        $number->user_id = $newUser->id;
+        $number->save();
     }
 }

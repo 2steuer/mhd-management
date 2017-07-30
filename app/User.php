@@ -27,4 +27,29 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function numbers()
+    {
+        return $this->hasMany('\App\PhoneNumber');
+    }
+
+    public function default_phone()
+    {
+        return $this->numbers()->first();
+    }
+
+    public function license()
+    {
+        return $this->belongsTo('\App\DriverLicense');
+    }
+
+    public function qualification()
+    {
+        return $this->belongsTo('\App\Qualification');
+    }
+
+    public function vehicles()
+    {
+        return $this->belongsToMany('\App\Vehicle');
+    }
 }

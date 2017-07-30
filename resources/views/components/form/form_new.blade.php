@@ -1,6 +1,6 @@
 {{ Form::open(['route' => $form_route, 'method' => 'post', 'class' => 'form-horizontal']) }}
 
-@include($form_partial)
+@include($form_partial, ['model' => null])
 
 <div class="form-group">
     <div class="col-sm-6">

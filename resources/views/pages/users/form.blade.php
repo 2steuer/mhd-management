@@ -6,6 +6,10 @@
 
 {{ Form::appText('phone_number', 'Telefon',  $model != null ? $model->default_phone()->number : '') }}
 
+{{ Form::appSelect('qualification_id', 'Qualifikation', \App\Qualification::orderBy('rank')->pluck('name', 'id')) }}
+
+{{ Form::appSelect('driver_license_id', 'Führerscheinklasse', \App\DriverLicense::orderBy('rank')->pluck('name', 'id')) }}
+
 {{ Form::appTextarea('comment', 'Kommentar') }}
 
 @if(\Illuminate\Support\Facades\Auth::getUser()->admin)

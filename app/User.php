@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('\App\Vehicle');
     }
+
+    public function tactical_qualification()
+    {
+        return $this->belongsTo('\App\TacticalQualification');
+    }
 }

@@ -6,6 +6,7 @@
         {{ Html::appNavLink('users.index', 'Mitglieder') }}
         {{ Html::appNavLink('vehicles.index', 'Fahrzeuge') }}
         {{ Html::appNavLink('qualifications.index', 'Qualifikationen') }}
+        {{ Html::appNavLink('tactical_qualifications.index', 'Takt. Qualifikationen') }}
         {{ Html::appNavLink('driver_licenses.index', 'Führerscheinklassen') }}
         {{ Html::appNavLink('login.logout', 'Ausloggen') }}
     @endif

@@ -27,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
         Form::component('appEmail', 'components.form.email', ['name', 'description', 'value' => null, 'attributes' => []]);
         Form::component('appCheckbox', 'components.form.checkbox', ['name', 'description', 'value' => null, 'attributes' => []]);
         Form::component('appPassword', 'components.form.password', ['name', 'description', 'value' => null, 'attributes' => []]);
+        Form::component('appColorPicker', 'components.form.colorpicker', ['name', 'description', 'value' => null, 'attributes'=>[]]);
 
         Html::component('appNavLink', 'components.nav.nav_link', ['route', 'name', 'route_params' => [], 'level_index' => 0, 'active' => false]);
         Html::macro('glyphLink', function($link, $glyphicon_name) {

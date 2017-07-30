@@ -5,6 +5,7 @@
         {{ Html::appNavLink('home', 'Startseite') }}
         {{ Html::appNavLink('users.index', 'Mitglieder') }}
         {{ Html::appNavLink('vehicles.index', 'Fahrzeuge') }}
+        {{ Html::appNavLink('qualifications.index', 'Qualifikationen') }}
         {{ Html::appNavLink('login.logout', 'Ausloggen') }}
     @endif
 </ul>

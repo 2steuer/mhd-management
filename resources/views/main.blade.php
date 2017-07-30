@@ -7,10 +7,15 @@
     <title>@yield('title', 'Seite') &raquo; {{ env('APP_NAME') }}</title>
 
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-colorpicker.min.css" />
 
 </head>
 <body>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/less.min.js"></script>
+<script src="js/bootstrap-colorpicker.min.js"></script>
 
 <div class="navbar navbar-default visible-xs" role="navigation">
     <div class="navbar-header">
@@ -62,7 +67,5 @@
     </div>
 </div>
 
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

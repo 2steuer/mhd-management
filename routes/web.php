@@ -33,10 +33,19 @@ Route::group(['middleware' => 'auth'], function() {
         ->name('users.confirmdelete');
 
     Route::resource('vehicles', 'VehicleController');
-    Route::get('vehicles/{id}', 'VehicleController@confirmdelete')
+    Route::get('vehicles/{id}/confirmdelete', 'VehicleController@confirmdelete')
         ->name('vehicles.confirmdelete');
     Route::get('vehicles/{id}/up', 'VehicleController@moveUp')
         ->name('vehicles.moveUp');
     Route::get('vehicles/{id}/down', 'VehicleController@moveDown')
         ->name('vehicles.moveDown');
+
+    Route::resource('qualifications', 'QualificationController');
+    Route::get('qualifications/{id}/confirmdelete', 'QualificationController@confirmdelete')
+        ->name('qualifications.confirmdelete');
+    Route::get('qualifications/{id}/up', 'QualificationController@moveUp')
+        ->name('qualifications.moveUp');
+    Route::get('qualifications/{id}/down', 'QualificationController@moveDown')
+        ->name('qualifications.moveDown');
+
 });

@@ -48,4 +48,13 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('qualifications/{id}/down', 'QualificationController@moveDown')
         ->name('qualifications.moveDown');
 
+    Route::resource('driver_licenses', 'DriverLicenseController');
+    Route::get('driver_licenses/{id}/confirmdelete', 'DriverLicenseController@confirmdelete')
+        ->name('driver_licenses.confirmdelete');
+    Route::get('driver_licenses/{id}/up', 'DriverLicenseController@moveUp')
+        ->name('driver_licenses.moveUp');
+    Route::get('driver_licenses/{id}/down', 'DriverLicenseController@moveDown')
+        ->name('driver_licenses.moveDown');
+
+
 });

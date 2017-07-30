@@ -151,11 +151,14 @@ abstract class CrudController extends Controller
 
     }
 
-    protected abstract function getModelName(Model $model);
+    protected function getModelName(Model $model)
+    {
+        return $model->name;
+    }
 
     protected function getModels()
     {
-        return $this->model->all();
+        return $this->model->orderBy('name')->get();
     }
 
     protected function getModel($id)

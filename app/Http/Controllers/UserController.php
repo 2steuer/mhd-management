@@ -53,6 +53,11 @@ class UserController extends CrudController
         return $model->last_name . ', ' . $model->first_name;
     }
 
+    protected function getModels()
+    {
+        return User::orderBy('last_name')->get();
+    }
+
     protected function preUpdateActions(Model $model, array $data)
     {
         if($model->can_login && !$data['can_login'])

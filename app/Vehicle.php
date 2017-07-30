@@ -10,6 +10,7 @@ class Vehicle extends Model
         'name',
         'abbreviation',
         'license',
-        'description'
+        'description',
+        'rank'
     ];
 }

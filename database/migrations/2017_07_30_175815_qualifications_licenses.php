@@ -21,7 +21,7 @@ class QualificationsLicenses extends Migration
             $t->unsignedInteger('rank');
 
             $t->string('color1');
-            $t->string('color2');
+            $t->string('color2')->nullable();
             $t->string('text_color');
 
             $t->timestamps();
@@ -31,7 +31,7 @@ class QualificationsLicenses extends Migration
         {
             $t->increments('id');
             $t->string('name');
-            $t->text('description');
+            $t->text('description')->nullable();
             $t->unsignedInteger('rank');
 
             $t->string('color1');

@@ -31,4 +31,12 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('users', 'UserController');
     Route::get('users/{id}/confirmdelete', 'UserController@confirmdelete')
         ->name('users.confirmdelete');
+
+    Route::resource('vehicles', 'VehicleController');
+    Route::get('vehicles/{id}', 'VehicleController@confirmdelete')
+        ->name('vehicles.confirmdelete');
+    Route::get('vehicles/{id}/up', 'VehicleController@moveUp')
+        ->name('vehicles.moveUp');
+    Route::get('vehicles/{id}/down', 'VehicleController@moveDown')
+        ->name('vehicles.moveDown');
 });

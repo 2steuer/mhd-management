@@ -18,8 +18,9 @@ class Vehicles extends Migration
             $t->increments('id');
             $t->string('name');
             $t->string('abbreviation');
-            $t->string('license');
-            $t->text('description');
+            $t->string('license')->nullable();
+            $t->text('description')->nullable();
+            $t->unsignedInteger('rank');
             $t->timestamps();
         });
 

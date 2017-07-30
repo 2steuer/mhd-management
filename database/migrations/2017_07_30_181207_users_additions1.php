@@ -17,7 +17,7 @@ class UsersAdditions1 extends Migration
         {
             $table->unsignedInteger('qualification_id')->nullable();
             $table->unsignedInteger('driver_license_id')->nullable();
-            $table->text('comment');
+            $table->text('comment')->nullable();
 
             $table->foreign('qualification_id')
                 ->references('id')

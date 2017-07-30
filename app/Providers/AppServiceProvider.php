@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Form;
+use Html;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,11 +23,15 @@ class AppServiceProvider extends ServiceProvider
         Form::component('appDeleteForm', 'components.form.form_confirmdelete', ['route', 'back_route']);
 
         Form::component('appText', 'components.form.text', ['name', 'description', 'value' => null, 'attributes' => []]);
+        Form::component('appTextarea', 'components.form.textarea', ['name', 'description', 'value' => null, 'attributes' => []]);
         Form::component('appEmail', 'components.form.email', ['name', 'description', 'value' => null, 'attributes' => []]);
         Form::component('appCheckbox', 'components.form.checkbox', ['name', 'description', 'value' => null, 'attributes' => []]);
         Form::component('appPassword', 'components.form.password', ['name', 'description', 'value' => null, 'attributes' => []]);
 
-        \Html::component('appNavLink', 'components.nav.nav_link', ['route', 'name', 'route_params' => [], 'level_index' => 0, 'active' => false]);
+        Html::component('appNavLink', 'components.nav.nav_link', ['route', 'name', 'route_params' => [], 'level_index' => 0, 'active' => false]);
+        Html::macro('glyphLink', function($link, $glyphicon_name) {
+            return '<a href="'.$link.'" class="btn btn-default"><span class="glyphicon glyphicon-'.$glyphicon_name.'"></span></a>';
+        });
     }
 
     /**

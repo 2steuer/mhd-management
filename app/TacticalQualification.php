@@ -11,6 +11,7 @@ class TacticalQualification extends Model
         'abbreviation',
         'color1',
         'color2',
-        'text_color'
+        'text_color',
+        'rank'
     ];
 }

@@ -28,7 +28,7 @@ class TacticQualification extends Migration
 
         Schema::table('users', function(Blueprint $t)
         {
-            $t->unsignedInteger('tactical_qualification_id');
+            $t->unsignedInteger('tactical_qualification_id')->nullable();
 
             $t->foreign('tactical_qualification_id')
                 ->references('id')

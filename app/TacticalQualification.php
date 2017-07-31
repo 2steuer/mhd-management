@@ -14,4 +14,9 @@ class TacticalQualification extends Model
         'text_color',
         'rank'
     ];
+
+    public function css_class()
+    {
+        return 'tactical-'.$this->id;
+    }
 }

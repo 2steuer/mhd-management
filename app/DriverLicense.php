@@ -14,4 +14,9 @@ class DriverLicense extends Model
         'color2',
         'text_color'
     ];
+
+    public function css_class()
+    {
+        return 'license-'.$this->id;
+    }
 }

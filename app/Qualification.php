@@ -14,4 +14,9 @@ class Qualification extends Model
         'color2',
         'text_color'
     ];
+
+    public function css_class()
+    {
+        return 'quali-'.$this->id;
+    }
 }

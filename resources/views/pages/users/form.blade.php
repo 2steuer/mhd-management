@@ -8,6 +8,9 @@
 
 {{ Form::appSelect('qualification_id', 'Qualifikation', \App\Qualification::orderBy('rank')->pluck('name', 'id')) }}
 
+{{ Form::appSelect('tactical_qualification_id', 'Takt. Qualifikation', \App\TacticalQualification::orderBy('rank')->pluck('name', 'id')) }}
+
+
 {{ Form::appSelect('driver_license_id', 'Führerscheinklasse', \App\DriverLicense::orderBy('rank')->pluck('name', 'id')) }}
 
 {{ Form::appCheckboxList('selected_vehicles', 'Zugelassene Fahrzeuge', \App\Vehicle::orderBy('rank')->pluck('name', 'id'),

@@ -32,6 +32,9 @@ class ReportController extends Controller
 
     public function allcards(Request $request)
     {
+        $users = User::orderBy('last_name')->get();
+        $vehicles = Vehicle::orderBy('rank')->get();
 
+        return view('pages.reports.cards.cards', ['users' => $users, 'vehicles' => $vehicles]);
     }
 }

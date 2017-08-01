@@ -15,8 +15,8 @@ class UsersAdditions1 extends Migration
     {
         Schema::table('users', function(Blueprint $table)
         {
-            $table->unsignedInteger('qualification_id')->nullable();
-            $table->unsignedInteger('driver_license_id')->nullable();
+            $table->unsignedInteger('qualification_id');
+            $table->unsignedInteger('driver_license_id');
             $table->text('comment')->nullable();
 
             $table->foreign('qualification_id')

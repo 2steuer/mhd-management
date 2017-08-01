@@ -70,4 +70,6 @@ Route::group(['middleware' => 'auth'], function() {
         ->name('reports.stylesheet');
     Route::get('reports/overview', 'Reports\ReportController@overview')
         ->name('reports.overview');
+    Route::get('reports/overview_full', 'Reports\ReportController@full_overview')
+        ->name('reports.overview_full');
 });

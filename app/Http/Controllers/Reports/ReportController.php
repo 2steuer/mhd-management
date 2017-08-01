@@ -14,6 +14,14 @@ class ReportController extends Controller
         $users = User::orderBy('last_name')->get();
         $vehicles = Vehicle::orderBy('rank')->get();
 
-        return view('pages.reports.table', ['users' => $users, 'vehicles' => $vehicles]);
+        return view('pages.reports.web.users_overview', ['users' => $users, 'vehicles' => $vehicles]);
+    }
+
+    public function full_overview()
+    {
+        $users = User::orderBy('last_name')->get();
+        $vehicles = Vehicle::orderBy('rank')->get();
+
+        return view('pages.reports.web.users_onlytable', ['users' => $users, 'vehicles' => $vehicles]);
     }
 }

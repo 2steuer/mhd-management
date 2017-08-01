@@ -36,7 +36,7 @@
 <div class="container">
     <div class="row hidden-xs">
         <div class="col-sm-12">
-            <h1>{{ env('SITE_TITLE') }}</h1>
+            <h1>{{ env('APP_NAME') }}</h1>
         </div>
     </div>
     <div class="row">

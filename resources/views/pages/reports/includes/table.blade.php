@@ -1,13 +1,3 @@
-@extends('main')
-
-@section('title', 'Mitgliederübersicht')
-@section('page_title', 'Alle Mitglieder')
-
-@section('extra_styles')
-<link rel="stylesheet" type="text/css" href="{{ route('reports.stylesheet') }}" />
-@endsection
-
-@section('content')
 <table class="table">
     <tr>
         <th>Nachname</th>
@@ -34,9 +24,13 @@
         <td>{{ $user->comment }}</td>
 
         @foreach($vehicles as $vehicle)
-            <td class="{{ $user->has_vehicle($vehicle->id) ? 'yes' : 'no' }}"></td>
+            @if($user->has_vehicle($vehicle->id))
+                <td class="centered yes"><span class="glyphicon glyphicon-ok"></span></td>
+            @else
+                <td class="centered no"><span class="glyphicon glyphicon-remove"></span></td>
+            @endif
+
         @endforeach
     </tr>
     @endforeach
 </table>
-@endsection

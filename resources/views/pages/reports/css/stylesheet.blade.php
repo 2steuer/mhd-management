@@ -22,6 +22,9 @@
 @endforeach
 
 /* vehicle existence */
+.centered {
+    text-align: center;
+}
 .yes {
     background: #00FF00;
 }

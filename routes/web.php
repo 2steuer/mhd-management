@@ -72,4 +72,8 @@ Route::group(['middleware' => 'auth'], function() {
         ->name('reports.overview');
     Route::get('reports/overview_full', 'Reports\ReportController@full_overview')
         ->name('reports.overview_full');
+    Route::get('reports/cards', 'Reports\ReportController@allcards')
+        ->name('reports.cards.all');
+    Route::post('reports/cards', 'Reports\ReportController@cards')
+        ->name('reports.cards');
 });

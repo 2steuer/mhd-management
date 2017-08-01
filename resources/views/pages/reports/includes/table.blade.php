@@ -1,5 +1,8 @@
 <table class="table">
     <tr>
+        @if($checkboxes)
+        <th></th>
+        @endif
         <th>Nachname</th>
         <th>Vorname</th>
         <th>Telefon</th>
@@ -15,6 +18,9 @@
 
     @foreach($users as $user)
     <tr>
+        @if($checkboxes)
+        <td>{{ Form::checkbox('users[]', $user->id, false, ['class'=>'form-check-input']) }}</td>
+        @endif
         <td>{{ $user->last_name }}</td>
         <td>{{ $user->first_name }}</td>
         <td>{{ $user->default_phone()->number }}</td>

@@ -24,4 +24,14 @@ class ReportController extends Controller
 
         return view('pages.reports.web.users_onlytable', ['users' => $users, 'vehicles' => $vehicles]);
     }
+
+    public function cards(Request $request)
+    {
+        return var_dump($request->get('users'));
+    }
+
+    public function allcards(Request $request)
+    {
+
+    }
 }

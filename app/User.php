@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -38,7 +39,7 @@ class User extends Authenticatable
         return $this->numbers()->first();
     }
 
-    public function license()
+    public function driver_license()
     {
         return $this->belongsTo('\App\DriverLicense');
     }
@@ -51,6 +52,14 @@ class User extends Authenticatable
     public function vehicles()
     {
         return $this->belongsToMany('\App\Vehicle');
+    }
+
+    public function has_vehicle($veh_id)
+    {
+        return (DB::table('user_vehicle')
+                    ->where('user_id', $this->id)
+                    ->where('vehicle_id', $veh_id)
+                    ->count() > 0);
     }
 
     public function tactical_qualification()

@@ -65,5 +65,9 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('driver_licenses/{id}/down', 'DriverLicenseController@moveDown')
         ->name('driver_licenses.moveDown');
 
-
+    // Reports
+    Route::get('reports/stylesheet', 'Reports\CssController@stylesheet')
+        ->name('reports.stylesheet');
+    Route::get('reports/overview', 'Reports\ReportController@overview')
+        ->name('reports.overview');
 });

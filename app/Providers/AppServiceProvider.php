@@ -35,6 +35,8 @@ class AppServiceProvider extends ServiceProvider
         Html::macro('glyphLink', function($link, $glyphicon_name) {
             return '<a href="'.$link.'" class="btn btn-default"><span class="glyphicon glyphicon-'.$glyphicon_name.'"></span></a>';
         });
+
+        Html::component('stripedCssClass', 'components.css.card_field', ['classname', 'id', 'color1', 'color2', 'text_color', 'width'=>'3']);
     }
 
     /**

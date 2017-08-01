@@ -1,3 +1,9 @@
+@media print {
+    *, .yes, .no {
+        -webkit-print-color-adjust: exact;
+    }
+}
+
 .quali, .tquali, .license {
     font-weight: bold;
     text-align: center;
@@ -26,9 +32,19 @@
     text-align: center;
 }
 .yes {
-    background: #00FF00;
+    background: repeating-linear-gradient(
+        #00FF00 0%,
+        #00FF00 100%
+    ) !important;
 }
 
 .no {
-    background: #FF7733;
+    background: repeating-linear-gradient(
+        #FF7733 0%,
+        #FF7733 100%
+    ) !important;
+}
+
+span {
+    background: transparent;
 }

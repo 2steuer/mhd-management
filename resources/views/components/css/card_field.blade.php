@@ -6,5 +6,5 @@
         {{ $color1 }} {{ $width }}px,
         {{ $color2 }} {{ $width }}px,
         {{ $color2 }} {{ $width * 2 }}px
-    );
+    ) !important;
 }

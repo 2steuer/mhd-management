@@ -101,7 +101,6 @@
     </style>
 </head>
 <body>
-<script src="js/less.min.js"></script>
 @foreach($users as $user)
     <div class="card">
         <div class="name">

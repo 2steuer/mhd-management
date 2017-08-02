@@ -179,7 +179,7 @@ return [
 
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-
+        Orangehill\Iseed\IseedServiceProvider::class
 
     ],
 

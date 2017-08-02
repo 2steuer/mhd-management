@@ -18,6 +18,9 @@ class UserSeed extends Seeder
         $newUser->password = Hash::make('pwmerlin');
         $newUser->can_login = true;
         $newUser->admin = true;
+        $newUser->qualification_id = \App\Qualification::where('abbreviation', 'ES')->first()->id;
+        $newUser->tactical_qualification_id = \App\TacticalQualification::where('abbreviation', 'GF')->first()->id;
+        $newUser->driver_license_id = \App\DriverLicense::where('name', '---')->first()->id;
         $newUser->save();
 
         $number = new \App\PhoneNumber();

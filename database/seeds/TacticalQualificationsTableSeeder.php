@@ -71,11 +71,11 @@ class TacticalQualificationsTableSeeder extends Seeder
                 'name' => 'Org. Leiter RD',
                 'abbreviation' => 'OrgL',
                 'rank' => 4,
-                'color1' => '#ff0000',
-                'color2' => '#ffff00',
-                'text_color' => '#000000',
+                'color1' => '#993300',
+                'color2' => '#993300',
+                'text_color' => '#ffffff',
                 'created_at' => '2017-07-31 16:48:15',
-                'updated_at' => '2017-08-02 10:16:31',
+                'updated_at' => '2017-08-02 12:38:44',
             ),
             5 => 
             array (
@@ -85,9 +85,9 @@ class TacticalQualificationsTableSeeder extends Seeder
                 'rank' => 6,
                 'color1' => '#993300',
                 'color2' => '#993300',
-                'text_color' => '#000000',
+                'text_color' => '#ffffff',
                 'created_at' => '2017-07-31 16:48:46',
-                'updated_at' => '2017-08-02 10:17:43',
+                'updated_at' => '2017-08-02 12:38:37',
             ),
             6 => 
             array (

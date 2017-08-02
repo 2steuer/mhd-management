@@ -5,51 +5,71 @@
         @include('pages.reports.css.stylesheet')
 
         .card {
-            width: 15cm;
-            height: 8cm;
+            width: 12.7cm;
+            height: 5.2cm;
             border: 1px dashed black;
             font-family: Calibri;
             display: inline-block;
         }
 
         .name {
-            height: 2.5cm;
+            height: calc(2cm - 0.1mm);
             width: 100%;
-            border-bottom: 0.5mm solid black;
+            border-bottom: 0.1mm solid black;
             text-align: center;
-            font-size: 1.5cm;
+            font-size: 1.2cm;
 
         }
         .quali_row {
-            height: 2cm;
+            height: calc(1.0cm - 1mm);
             width: 100%;
             border-bottom: 1mm solid black;
+            font-size: 0.7cm;
+        }
+
+        .quali_row_headings {
+            height: 0.3cm;
+            width: 100%;
+            border-bottom: 0.1mm solid black;
+        }
+
+        .heading {
+            display: block;
+            float:left;
+            height: 100%;
+            font-size: 0.3cm;
+            text-align: left;
+            padding-left: 2mm;
+        }
+
+        .heading-cell {
+            width: 1.9cm;
+            border-right: 0.1mm solid black;
         }
 
         .card-cell {
-            width: 2.5cm;
+            width: 2.1cm;
             height: 100%;
             display: block;
             float: left;
             border: 0;
             padding: 0;
             margin: 0;
-            border-right: 0.5mm solid black;
-            font-size: 1.2cm;
+            border-right: 0.1mm solid black;
         }
 
         .comment {
             text-align: center;
             color: red;
-            font-size: 1.2cm;
             height: 100%;
         }
 
         .vehicle_row {
-            height: 1cm;
+            height: 0.7cm;
             width: 100%;
 
             border-bottom: 1mm solid black;
+            font-size: 0.4cm;
         }
 
         .vehicle-cell {
@@ -65,14 +85,14 @@
         }
 
         .number {
-            height: 2cm;
+            height: 1cm;
             width: 100%;
 
             text-align: center;
-            font-size: 1.2cm;
+            font-size: 0.8cm;
         }
 
-        span {
+        span.content {
             display: block;
             position: relative;
             top: 50%;
@@ -81,34 +101,49 @@
     </style>
 </head>
 <body>
+<script src="js/less.min.js"></script>
 @foreach($users as $user)
     <div class="card">
         <div class="name">
-            <span>{{ $user->first_name }} {{ $user->last_name }}</span>
+            <span class="content">{{ $user->first_name }} {{ $user->last_name }}</span>
+        </div>
+        <div class="quali_row_headings">
+            <div class="heading heading-cell">
+                <span class="content">Med. Qual.</span>
+            </div>
+            <div class="heading heading-cell">
+                <span class="content">Takt. Qual.</span>
+            </div>
+            <div class="heading heading-cell">
+                <span class="content">Führerschein</span>
+            </div>
+            <div class="heading">
+                <span class="content">Bemerkungen</span>
+            </div>
         </div>
         <div class="quali_row">
             <div class="card-cell quali quali-{{ $user->qualification->id }}">
-                <span>{{ $user->qualification->abbreviation }}</span>
+                <span class="content">{{ $user->qualification->abbreviation }}</span>
             </div>
             <div class="card-cell tquali tquali-{{ $user->tactical_qualification->id }}">
-                <span>{{ $user->tactical_qualification->abbreviation }}</span>
+                <span class="content">{{ $user->tactical_qualification->abbreviation }}</span>
             </div>
             <div class="card-cell license license-{{ $user->driver_license->id }}">
-                <span>{{ $user->driver_license->name }}</span>
+                <span class="content">{{ $user->driver_license->name }}</span>
             </div>
             <div class="comment">
-                <span>{{ $user->comment }}</span>
+                <span class="content">{{ $user->comment }}</span>
             </div>
         </div>
         <div class="vehicle_row">
             @foreach($vehicles as $vehicle)
                 <div class="vehicle-cell {{ $user->has_vehicle($vehicle->id) ? 'yes' : 'no'}}">
-                    <span>{{ $vehicle->abbreviation }}</span>
+                    <span class="content">{{ $vehicle->abbreviation }}</span>
                 </div>
             @endforeach
         </div>
         <div class="number">
-            <span>{{ $user->default_phone()->number }}</span>
+            <span class="content">{{ $user->default_phone()->number }}</span>
         </div>
     </div>
 @endforeach

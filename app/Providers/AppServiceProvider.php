@@ -36,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
             return '<a href="'.$link.'" class="btn btn-default"><span class="glyphicon glyphicon-'.$glyphicon_name.'"></span></a>';
         });
 
-        Html::component('stripedCssClass', 'components.css.card_field', ['classname', 'id', 'color1', 'color2', 'text_color', 'width'=>'3']);
+        Html::component('stripedCssClass', 'components.css.card_field', ['classname', 'id', 'color1', 'color2', 'text_color', 'width'=>'2']);
     }
 
     /**

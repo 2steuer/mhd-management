@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-    {{ Form::open(['route' => 'reports.cards', 'method' => 'post']) }}
+    {{ Form::open(['route' => 'reports.cards', 'method' => 'post', 'target' => '_blank']) }}
 
     <div class="btn-toolbar">
         <div class="btn-group">

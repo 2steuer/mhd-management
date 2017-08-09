@@ -89,6 +89,7 @@ class UserController extends CrudController
     {
         $number = $model->default_phone();
         $number->number = $request->get('phone_number');
+        $number->update_normalized_number();
         $number->save();
 
         $model->vehicles()->sync($request->get('selected_vehicles', []));
@@ -105,6 +106,7 @@ class UserController extends CrudController
         $number = new PhoneNumber();
         $number->description = 'default';
         $number->number = $request->get('phone_number');
+        $number->update_normalized_number();
         $number->user_id = $model->id;
         $number->save();
 

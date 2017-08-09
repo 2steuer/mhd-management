@@ -37,7 +37,7 @@ class User extends Authenticatable
 
     public function default_phone()
     {
-        return $this->numbers()->first();
+        return $this->numbers()->where('is_default', true)->first();
     }
 
     public function driver_license()

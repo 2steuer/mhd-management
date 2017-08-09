@@ -8,6 +8,16 @@
     {{ Form::appEmail('email', 'E-Mail') }}
 
     {{ Form::appText('phone_number', 'Telefon (Hauptnummer)',  $model != null ? $model->default_phone()->number : '') }}
+
+    @if(isset($editing) && $editing)
+    <div class="form-group">
+        <div class="col-sm-3">
+            <a href="{{ route('users.numbers.edit', $model->id) }}" class="btn btn-default form-control">
+                <span class="glyphicon glyphicon-th"></span> Weitere Nummern
+            </a>
+        </div>
+    </div>
+    @endif
 </fieldset>
 
 <fieldset class="form-group">

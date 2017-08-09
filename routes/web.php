@@ -31,6 +31,14 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('users', 'UserController');
     Route::get('users/{id}/confirmdelete', 'UserController@confirmdelete')
         ->name('users.confirmdelete');
+    Route::get('users/{id}/numbers', 'UserController@editnumbers')
+        ->name('users.numbers.edit');
+    Route::put('users/{id}/numbers', 'UserController@updatenumbers')
+        ->name('users.numbers.update');
+    Route::get('users/{user}/deletenumber/{number}', 'UserController@deletenumber')
+        ->name('users.numbers.delete');
+    Route::post('users/{user}/numbers', 'UserController@newnumber')
+        ->name('users.numbers.create');
 
     // Route group for tactics stuff
     Route::group(['prefix' => 'tactics', 'as' => 'tactics.', 'namespace' => 'Tactics'], function() {

@@ -30,6 +30,16 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function get_name()
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
+
+    public function get_formal_name()
+    {
+        return $this->last_name . ', ' . $this->first_name;
+    }
+
     public function numbers()
     {
         return $this->hasMany('\App\PhoneNumber');

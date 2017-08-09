@@ -41,6 +41,7 @@ class UpdateNumbers extends Command
         foreach (PhoneNumber::all() as $number)
         {
             $number->is_default = true;
+            $number->description = 'mobil';
             $number->update_normalized_number();
             $number->save();
         }

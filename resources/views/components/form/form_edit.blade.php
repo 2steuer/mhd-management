@@ -1,6 +1,6 @@
 {{ Form::model($model, ['route' => $form_route, 'method' => 'put', 'class' => 'form-horizontal']) }}
 
-@include($form_partial, ['model' => $model])
+@include($form_partial, ['model' => $model, 'editing' => true])
 
 <div class="form-group">
     <div class="col-sm-6">

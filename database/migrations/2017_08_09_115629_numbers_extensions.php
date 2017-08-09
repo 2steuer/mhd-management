@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class VehicleRadionames extends Migration
+class NumbersExtensions extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class VehicleRadionames extends Migration
      */
     public function up()
     {
-        Schema::table('vehicles', function(Blueprint $t)
+        Schema::table('phone_numbers', function(Blueprint $t)
         {
-            $t->string('radio_name')->nullable();
+            $t->boolean('is_default')->default(false);
+            $t->string('normalized_number')->nullable();
+
         });
     }
 

@@ -1,27 +1,37 @@
-{{ Form::appText('last_name', 'Nachname') }}
+<fieldset class="form-group">
+    <legend>Allg. Daten</legend>
 
-{{ Form::appText('first_name', 'Vorname') }}
+    {{ Form::appText('last_name', 'Nachname') }}
 
-{{ Form::appEmail('email', 'E-Mail') }}
+    {{ Form::appText('first_name', 'Vorname') }}
 
-{{ Form::appText('phone_number', 'Telefon',  $model != null ? $model->default_phone()->number : '') }}
+    {{ Form::appEmail('email', 'E-Mail') }}
 
-{{ Form::appSelect('qualification_id', 'Qualifikation', \App\Qualification::orderBy('rank')->pluck('name', 'id')) }}
+    {{ Form::appText('phone_number', 'Telefon (Hauptnummer)',  $model != null ? $model->default_phone()->number : '') }}
+</fieldset>
 
-{{ Form::appSelect('tactical_qualification_id', 'Takt. Qualifikation', \App\TacticalQualification::orderBy('rank')->pluck('name', 'id')) }}
+<fieldset class="form-group">
+    <legend>Taktik</legend>
 
+    {{ Form::appText('comment', 'Kommentar') }}
 
-{{ Form::appSelect('driver_license_id', 'Führerscheinklasse', \App\DriverLicense::orderBy('rank')->pluck('name', 'id')) }}
+    {{ Form::appSelect('qualification_id', 'Qualifikation', \App\Qualification::orderBy('rank')->pluck('name', 'id')) }}
 
-{{ Form::appCheckboxList('selected_vehicles', 'Zugelassene Fahrzeuge', \App\Vehicle::orderBy('rank')->pluck('name', 'id'),
-                                                                        $model != null ? $model->vehicles()->pluck('id')->toArray() : []) }}
+    {{ Form::appSelect('tactical_qualification_id', 'Takt. Qualifikation', \App\TacticalQualification::orderBy('rank')->pluck('name', 'id')) }}
 
-{{ Form::appTextarea('comment', 'Kommentar') }}
+    {{ Form::appSelect('driver_license_id', 'Führerscheinklasse', \App\DriverLicense::orderBy('rank')->pluck('name', 'id')) }}
+
+    {{ Form::appCheckboxList('selected_vehicles', 'Zugelassene Fahrzeuge', \App\Vehicle::orderBy('rank')->pluck('name', 'id'),
+                                                                          $model != null ? $model->vehicles()->pluck('id')->toArray() : []) }}
+</fieldset>
 
 @if(\Illuminate\Support\Facades\Auth::getUser()->admin)
-{{ Form::appPassword('password', 'Passwort') }}
+    <fieldset class="form-group">
+        <legend>Login</legend>
+            {{ Form::appPassword('password', 'Passwort') }}
 
-{{ Form::appCheckbox('can_login', 'Login möglich?') }}
+            {{ Form::appCheckbox('can_login', 'Login möglich?') }}
 
-{{ Form::appCheckbox('admin', 'Admin?') }}
+            {{ Form::appCheckbox('admin', 'Admin?') }}
+    </fieldset>
 @endif

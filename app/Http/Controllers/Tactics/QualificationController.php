@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Tactics;
 
 use App\Http\Controllers\Base\RankedCrudController;
-use App\Qualification;
+use App\Model\Tactics\Qualification;
 use Illuminate\Http\Request;
 
 class QualificationController extends RankedCrudController
 {
     protected $human_singular = 'Qualifikation';
     protected $human_plural = 'Qualifikationen';
-    protected $model_plural = 'qualifications';
+    protected $model_plural = 'tactics.qualifications';
     protected $model_singular = 'qualification';
 
     protected $rules = [

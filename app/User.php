@@ -42,17 +42,17 @@ class User extends Authenticatable
 
     public function driver_license()
     {
-        return $this->belongsTo('\App\DriverLicense');
+        return $this->belongsTo('\App\Model\Tactics\DriverLicense');
     }
 
     public function qualification()
     {
-        return $this->belongsTo('\App\Qualification');
+        return $this->belongsTo('\App\Model\Tactics\Qualification');
     }
 
     public function vehicles()
     {
-        return $this->belongsToMany('\App\Vehicle');
+        return $this->belongsToMany('\App\Model\Tactics\Vehicle');
     }
 
     public function has_vehicle($veh_id)
@@ -65,6 +65,6 @@ class User extends Authenticatable
 
     public function tactical_qualification()
     {
-        return $this->belongsTo('\App\TacticalQualification');
+        return $this->belongsTo('\App\Model\Tactics\TacticalQualification');
     }
 }

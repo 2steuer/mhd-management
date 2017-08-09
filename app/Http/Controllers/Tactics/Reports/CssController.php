@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Reports;
+namespace App\Http\Controllers\Tactics\Reports;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,7 +10,7 @@ class CssController extends Controller
 {
     public function stylesheet()
     {
-        return response(View::make('pages.reports.css.stylesheet'))
+        return response(View::make('pages.tactics.reports.css.stylesheet'))
             ->withHeaders(['Content-Type' => 'text/css']);
 
 

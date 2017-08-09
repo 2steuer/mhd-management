@@ -2,7 +2,7 @@
 <head>
         <title>Taktikkarten</title>
     <style type="text/css">
-        @include('pages.reports.css.stylesheet')
+        @include('pages.tactics.reports.css.stylesheet')
 
         .card {
             width: 12.7cm;

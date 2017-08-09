@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Reports;
+namespace App\Http\Controllers\Tactics\Reports;
 
 use App\User;
-use App\Vehicle;
+use App\Model\Tactics\Vehicle;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +14,7 @@ class ReportController extends Controller
         $users = User::orderBy('last_name')->get();
         $vehicles = Vehicle::orderBy('rank')->get();
 
-        return view('pages.reports.web.users_overview', ['users' => $users, 'vehicles' => $vehicles]);
+        return view('pages.tactics.reports.web.users_overview', ['users' => $users, 'vehicles' => $vehicles]);
     }
 
     public function full_overview()
@@ -22,7 +22,7 @@ class ReportController extends Controller
         $users = User::orderBy('last_name')->get();
         $vehicles = Vehicle::orderBy('rank')->get();
 
-        return view('pages.reports.web.users_onlytable', ['users' => $users, 'vehicles' => $vehicles]);
+        return view('pages.tactics.reports.web.users_onlytable', ['users' => $users, 'vehicles' => $vehicles]);
     }
 
     public function cards(Request $request)
@@ -30,7 +30,7 @@ class ReportController extends Controller
         $users = User::whereIn('id', $request->get('users'))->orderBy('last_name')->get();
         $vehicles = Vehicle::orderBy('rank')->get();
 
-        return view('pages.reports.cards.cards', ['users' => $users, 'vehicles' => $vehicles]);
+        return view('pages.tactics.reports.cards.cards', ['users' => $users, 'vehicles' => $vehicles]);
     }
 
     public function allcards(Request $request)
@@ -38,6 +38,6 @@ class ReportController extends Controller
         $users = User::orderBy('last_name')->get();
         $vehicles = Vehicle::orderBy('rank')->get();
 
-        return view('pages.reports.cards.cards', ['users' => $users, 'vehicles' => $vehicles]);
+        return view('pages.tactics.reports.cards.cards', ['users' => $users, 'vehicles' => $vehicles]);
     }
 }

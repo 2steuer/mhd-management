@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap-colorpicker.min.css" />
-    <link rel="stylesheet" type="text/css" href="{{ route('reports.stylesheet') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ route('tactics.reports.stylesheet') }}" />
 </head>
 <body>
 
@@ -17,7 +17,7 @@
 <script src="js/less.min.js"></script>
 <script src="js/bootstrap-colorpicker.min.js"></script>
 
-@include('pages.reports.includes.table', ['users' => $users, 'vehicles' => $vehicles, 'checkboxes' => false])
+@include('pages.tactics.reports.includes.table', ['users' => $users, 'vehicles' => $vehicles, 'checkboxes' => false])
 
 </body>
 </html>

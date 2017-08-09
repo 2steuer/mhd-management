@@ -11,6 +11,7 @@ class Vehicle extends Model
         'abbreviation',
         'license',
         'description',
-        'rank'
+        'rank',
+        'radio_name'
     ];
 }

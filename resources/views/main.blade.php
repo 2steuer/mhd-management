@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap-colorpicker.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/extra.css" />
     @yield('extra_styles')
 </head>
 <body>
@@ -28,7 +29,7 @@
     </div>
 
     <div class="collapse navbar-collapse" id="xs-navbar-collapse">
-        @include('include.menulist', ['nav_classes' => 'nav navbar-nav'])
+        @include('include.menulist', ['nav_classes' => 'list-group'])
     </div>
 </div>
 
@@ -43,7 +44,7 @@
         <div class="col-sm-3 hidden-xs">
             <h2>Navigation</h2>
 
-            @include('include.menulist', ['nav_classes'=>'nav nav-pills nav-stacked'])
+            @include('include.menulist', ['nav_classes'=>/*'nav nav-pills nav-stacked'*/'list-group'])
         </div>
 
         <div class="col-sm-9 col-xs-12">

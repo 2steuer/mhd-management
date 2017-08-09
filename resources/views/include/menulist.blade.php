@@ -1,14 +1,7 @@
 <ul class="{{ $nav_classes }}">
     @if(Auth::guest())
-        {{ Html::appNavLink('login', 'Einloggen', [], 0, true) }}
+        @include('include.menu', ['nav_classes' => $nav_classes, 'level' => 0, 'menu' => \App\Menu\AppMenu::getGuestMenu()])
     @else
-        {{ Html::appNavLink('home', 'Startseite') }}
-        {{ Html::appNavLink('users.index', 'Mitglieder verwalten') }}
-        {{ Html::appNavLink('tactics.reports.overview', 'Mitgliederübersicht') }}
-        {{ Html::appNavLink('tactics.vehicles.index', 'Fahrzeuge') }}
-        {{ Html::appNavLink('tactics.qualifications.index', 'Qualifikationen') }}
-        {{ Html::appNavLink('tactics.tactical_qualifications.index', 'Takt. Qualifikationen') }}
-        {{ Html::appNavLink('tactics.driver_licenses.index', 'Führerscheinklassen') }}
-        {{ Html::appNavLink('login.logout', 'Ausloggen') }}
+        @include('include.menu', ['nav_classes' => $nav_classes, 'level' => 0, 'menu' => \App\Menu\AppMenu::getMenu()])
     @endif
 </ul>

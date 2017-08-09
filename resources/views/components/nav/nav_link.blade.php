@@ -1,3 +1,3 @@
-<li class="{{ ($active ? 'active' : (explode('.', Route::current()->getName())[$level_index] == explode('.', $route)[$level_index] ? 'active' : '')) }}">
-    <a href="{{ route($route, $route_params) }}">{{ $name }}</a>
-</li>
+<!--<li class="list-group-item list-group-item-action {{ ($active ? 'active' : (explode('.', Route::current()->getName())[$level_index] == explode('.', $route)[$level_index] ? 'active' : '')) }}">-->
+    <a class="list-group-item list-group-item-action {{ ($active ? 'active' : (explode('.', Route::current()->getName())[$level_index] == explode('.', $route)[$level_index] ? 'active' : '')) }}" href="{{ route($route, $route_params) }}">{{ $name }}</a>
+<!--</li>-->

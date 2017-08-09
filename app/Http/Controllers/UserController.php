@@ -72,7 +72,7 @@ class UserController extends CrudController
         }
         else
         {
-            if(!in_array('password', array_keys($data)))
+            if(!in_array('password', array_keys($data)) || $data['password'] == '')
             {
                 $data['password'] = $model->password;
             }

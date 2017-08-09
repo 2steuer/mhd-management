@@ -109,7 +109,7 @@ abstract class CrudController extends Controller
 
         $this->postUpdateActions($model, $request);
 
-        Session::flash('alert', $this->human_singular, ' geändert.');
+        Session::flash('alert', $this->human_singular. ' geändert.');
 
         return redirect()->route($this->model_plural . '.index');
     }

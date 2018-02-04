@@ -17,4 +17,9 @@ class PhoneNumber extends Model
         $this->normalized_number = \Propaganistas\LaravelPhone\PhoneNumber::make($this->number, env('PHONE_DEFAULT_COUNTRY', 'DE'))
             ->formatE164();
     }
+
+    public function user()
+    {
+        return $this->belongsTo('\App\User');
+    }
 }
